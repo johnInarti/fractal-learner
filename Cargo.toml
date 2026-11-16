@@ -1,0 +1,17 @@
+# fractal-learner: motor de entrenamiento DETERMINISTA de la Cadena de Aprendizaje Verificable (F1).
+# Proceso aparte del nodo (regla 1 del plan: el consenso nunca espera al entrenamiento).
+# Sin dependencias a propósito: toda la aritmética que decide un hash está en este crate.
+[package]
+name = "fractal-learner"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace]
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+debug = false
