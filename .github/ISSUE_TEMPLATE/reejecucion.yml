@@ -1,0 +1,54 @@
+name: "Reporte de re-ejecución / Re-execution report"
+description: "Ejecutaste el comando del README: cuéntanos si coincidió o no. / You ran the README command: tell us whether it matched."
+title: "[re-ejecución] <CPU> · <coincide | NO coincide>"
+labels: ["reejecucion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias. Nos interesa sobre todo cuando **NO** coincide. / Thank you. We care most about the cases where it does **NOT** match.
+  - type: dropdown
+    id: resultado
+    attributes:
+      label: "¿Coincidió? / Did it match?"
+      options: ["Sí, cmp no imprimió nada / Yes, cmp printed nothing", "No, cmp encontró diferencias / No, cmp reported a difference"]
+    validations: { required: true }
+  - type: input
+    id: cpu
+    attributes:
+      label: "CPU (modelo exacto) / CPU (exact model)"
+      placeholder: "p. ej. AMD Ryzen 7 7840U · Apple M2 · Intel i5-1135G7"
+    validations: { required: true }
+  - type: input
+    id: so
+    attributes:
+      label: "Sistema operativo y arquitectura / OS and architecture"
+      placeholder: "p. ej. Ubuntu 24.04 x86_64 · macOS 15 arm64 · Windows 11 x86_64"
+    validations: { required: true }
+  - type: input
+    id: rustc
+    attributes:
+      label: "rustc --version"
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: "./target/release/fractal-learner --version"
+    validations: { required: true }
+  - type: input
+    id: hilos
+    attributes:
+      label: "--threads usado / threads used"
+      placeholder: "4"
+  - type: textarea
+    id: hash
+    attributes:
+      label: "sha256 de runs/athena/trayectoria.tsv y compromiso.txt"
+      description: "`shasum -a 256 runs/athena/trayectoria.tsv runs/athena/compromiso.txt` (o `sha256sum` en Linux)"
+      render: text
+    validations: { required: true }
+  - type: textarea
+    id: cmp
+    attributes:
+      label: "Salida de cmp si NO coincidió / cmp output if it did NOT match"
+      render: text

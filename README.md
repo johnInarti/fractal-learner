@@ -12,8 +12,12 @@ cargo build --release && ./target/release/fractal-learner train --preset athena 
 cmp runs/athena/trayectoria.tsv referencia-dominio-publico/athena/trayectoria.tsv
 ```
 
-Si `cmp` no imprime nada, tu trayectoria es idéntica a la nuestra. Si difiere, abre un issue con tu CPU, sistema
-operativo, versión de rustc y la salida de `cmp`: nos interesa sobre todo cuando NO coincide.
+Si `cmp` no imprime nada, tu trayectoria es idéntica a la nuestra. Coincida o no, cuéntanoslo con el formulario
+«Reporte de re-ejecución» (Issues → New issue): nos interesa sobre todo cuando NO coincide. Cada reporte entra, con
+su nombre, en el registro público de re-ejecuciones; sólo contamos como coincidentes las que podemos cotejar.
+
+*In English:* run the command above; whether it matches or not, please file a «Re-execution report» issue with your
+CPU, OS and rustc version. Mismatches are the most valuable reports.
 
 El corpus es de dominio público: los primeros 299 897 bytes del Quijote (Project Gutenberg #2000); procedencia y
 SHA-256 en `data/DOMINIO-PUBLICO.md`.
